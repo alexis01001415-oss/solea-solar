@@ -4,40 +4,15 @@ export const brand = {
   isPrototype: true,
 };
 
-export const installationSteps = [
-  {
-    title: "Todo empieza en tu casa.",
-    text: "Conocemos tu consumo, cómo llega el agua y el acceso a tu azotea.",
-    detail: "Una solución comienza por escuchar.",
-    icon: "home",
-  },
-  {
-    title: "Su lugar bajo el sol.",
-    text: "Buscamos un área sin sombras, orientada al sur y con espacio para darle mantenimiento.",
-    detail: "Cada azotea tiene su mejor lugar.",
-    icon: "sunny",
-  },
-  {
-    title: "Una base para durar.",
-    text: "Revisamos el soporte, fijamos el equipo y cuidamos la impermeabilización de tu techo.",
-    detail: "La tranquilidad está en los detalles.",
-    icon: "construction",
-  },
-  {
-    title: "El calor encuentra su camino.",
-    text: "Conectamos tuberías aisladas y protecciones compatibles con la presión de tu casa.",
-    detail: "Del sol a ese momento bajo el agua.",
-    icon: "water_drop",
-  },
-  {
-    title: "Listo para un nuevo día.",
-    text: "Comprobamos que no haya fugas y te explicamos el uso, el respaldo y el mantenimiento.",
-    detail: "Ahora sí. Bienvenido al lado cálido.",
-    icon: "task_alt",
-  },
-];
-
 export const sources = [
+  {
+    title: "CONUEE · Referencia de ahorro doméstico (2014)",
+    url: "https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-en-mi-casa?state=published",
+  },
+  {
+    title: "California Energy Commission · Calor solar y emisiones",
+    url: "https://www.energy.ca.gov/publications/2019/solar-water-heating-assessment-project-understanding-and-improving-effectiveness",
+  },
   {
     title: "CONUEE · Instalación y mantenimiento",
     url: "https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-instalacion-y-mantenimiento?state=published",

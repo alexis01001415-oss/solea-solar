@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import { THREE, getHeater, makeRenderer, addLighting } from "./three-shared.js";
 
 export async function initTour() {
@@ -316,8 +315,7 @@ export async function initTour() {
   }
   let visible = true,
     raf = null,
-    step = -1,
-    animating = false;
+    step = -1;
   const target = new THREE.Vector3(0, 3, 0);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const views = [
@@ -327,7 +325,7 @@ export async function initTour() {
     { camera: [-6.15, 8.1, 4.85], target: [-1.1, 5.85, -0.7] },
     { camera: [10.8, 8.25, 14.7], target: [0, 2.9, -0.1] },
   ];
-  let tweens = [];
+  let currentProgress = 0;
   function requestDraw() {
     if (!raf) raf = requestAnimationFrame(render);
   }
@@ -345,58 +343,32 @@ export async function initTour() {
       }
     }
     renderer.render(scene, camera);
-    if (animating || (step === 3 && !reduce.matches)) requestDraw();
+    if (step === 3 && !reduce.matches) requestDraw();
   }
-  function move(view) {
-    tweens.forEach((t) => t.kill());
-    animating = true;
-    const duration = reduce.matches ? 0 : 1.65;
-    let pos = [...view.camera];
-    if (viewport.clientWidth < 420) {
-      const t = new THREE.Vector3(...view.target);
-      const c = new THREE.Vector3(...pos);
-      c.sub(t).multiplyScalar(1.14).add(t);
-      pos = c.toArray();
-    }
-    tweens = [
-      gsap.to(camera.position, {
-        x: pos[0],
-        y: pos[1],
-        z: pos[2],
-        duration,
-        ease: "power2.inOut",
-        onUpdate: requestDraw,
-        onComplete: () => {
-          animating = false;
-          requestDraw();
-        },
-      }),
-      gsap.to(target, {
-        x: view.target[0],
-        y: view.target[1],
-        z: view.target[2],
-        duration,
-        ease: "power2.inOut",
-        onUpdate: requestDraw,
-      }),
-    ];
+  function setProgress(value) {
+    currentProgress = Math.max(0, Math.min(4, value));
+    const start = Math.min(3, Math.floor(currentProgress));
+    let fraction = currentProgress - start;
+    fraction = fraction * fraction * (3 - 2 * fraction);
+    const a = views[start],
+      b = views[start + 1];
+    const interpolate = (key, i) =>
+      a[key][i] + (b[key][i] - a[key][i]) * fraction;
+    target.set(...[0, 1, 2].map((i) => interpolate("target", i)));
+    camera.position.set(...[0, 1, 2].map((i) => interpolate("camera", i)));
+    if (viewport.clientWidth < 420)
+      camera.position.sub(target).multiplyScalar(1.14).add(target);
+    step = Math.round(currentProgress);
+    drops.forEach((drop) => {
+      drop.visible = step === 3 && !reduce.matches;
+    });
     requestDraw();
-  }
-  function goTo(value) {
-    step = value;
-    drops.forEach((d) => (d.visible = step === 3));
-    move(views[value]);
-  }
-  function overview() {
-    step = -1;
-    drops.forEach((d) => (d.visible = false));
-    move({ camera: [11, 10.4, 15], target: [0, 3.2, -0.3] });
   }
   function resize() {
     renderer.setSize(viewport.clientWidth, viewport.clientHeight, false);
     camera.aspect = viewport.clientWidth / viewport.clientHeight;
     camera.updateProjectionMatrix();
-    requestDraw();
+    setProgress(currentProgress);
   }
   new ResizeObserver(resize).observe(viewport);
   new IntersectionObserver(
@@ -425,5 +397,5 @@ export async function initTour() {
   camera.position.set(11, 10.4, 15);
   resize();
   requestDraw();
-  return { goTo, overview };
+  return { setProgress };
 }

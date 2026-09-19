@@ -24,8 +24,10 @@ npm run preview
 ## Experiencia
 
 - HTML semántico estático, Vite, JavaScript modular y CSS responsive.
-- Calentador Three.js que cambia de posición y ángulo durante los tres primeros capítulos; controles de giro accesibles por teclado. En móvil se mantiene dentro de sus espacios para no tapar texto.
-- Casa procedural, sombras, vegetación, azotea, tinaco, calentador y tuberías. Cinco vistas de instalación con controles, reproducción y pausa.
+- Calentador Three.js que cambia de posición y ángulo durante los tres primeros capítulos. Arrastre con ratón o gesto horizontal, flechas de teclado e Inicio para restablecer. El scroll vertical y el zoom táctil se conservan.
+- Casa procedural, sombras, vegetación, azotea, tinaco, calentador y tuberías. Cinco capítulos de instalación con cámara guiada por scroll reversible y escena sticky. El contenido de los cinco pasos permanece en HTML.
+- Lenis y GSAP comparten un reloj. Navegación persistente, títulos con aparición animada y botones de vidrio texturado. Movimiento reducido: desplazamiento nativo, sin vuelos de cámara ni paneles prolongados.
+- Escenario ajustable de ahorro, beneficios ambientales con fuentes y doce preguntas frecuentes. La referencia de CONUEE es general y de 2014; no se presenta como ahorro garantizado del recibo completo.
 - Cotizador local con capacidades e importes ilustrativos. Presión desconocida o ubicación fuera del área: solicita valoración en vez de inventar un precio.
 - PDF creado bajo demanda con jsPDF. La solicitud de contacto añade los datos del formulario al documento local; **no hay envío ni almacenamiento de contactos**.
 - Lora, Raleway y Google Material Symbols servidos localmente.
@@ -53,10 +55,15 @@ CSP restrictiva en meta, hash del JSON-LD, activos propios, sin scripts externos
 ## Archivos clave
 
 - `index.html`: contenido y estructura.
-- `src/styles.css`: sistema visual y adaptación.
+- `src/styles.css`, `src/refinements.css`: sistema visual y adaptación.
+- `src/scroll-experience.js`: Lenis, animación de títulos y sincronización de capítulos.
 - `src/product.js`, `src/tour.js`, `src/three-shared.js`: escenas 3D.
 - `src/quote.js`, `src/pdf.js`: cálculo y documento.
-- `src/config.js`: copy del recorrido y fuentes.
+- `src/config.js`: marca y fuentes; los capítulos visibles están en `index.html`.
 - `scripts/prepare-assets.mjs`: adaptación opcional del GLB suministrado (no es necesaria para compilar; los activos optimizados están incluidos).
 
 Ver [créditos y fuentes](THIRD_PARTY_NOTICES.md).
+
+## Referencias de dirección visual
+
+Investigación para esta iteración: [Caeli Energie, Awwwards](https://www.awwwards.com/inspiration/on-scroll-product-presentation-caeli-energie), [Noomo, artículo de sus creadores](https://www.awwwards.com/new-focus-new-brand-new-website.html) y [Lia Premium Olive Oil, CSS Design Awards](https://www.cssdesignawards.com/sites/lia-premium-olive-oil/42054/). Se tomaron como referencia la continuidad del producto, la narración con scroll y el uso de luz sobre vidrio; el diseño y la implementación de Solea son propios.

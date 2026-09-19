@@ -16,7 +16,7 @@ The supplied GLB's attribution is retained in the adapted asset. Adaptations: re
 - Lora, SIL Open Font License 1.1. https://github.com/cyrealtype/Lora-Cyrillic
 - Raleway, SIL Open Font License 1.1. https://github.com/impallari/Raleway
 - Font license files are preserved by the installed Fontsource packages and copied under `public/licenses/` for distribution.
-- Three.js (MIT), jsPDF (MIT) and GSAP (Standard GSAP License) retain their notices in the npm packages. See each installed package for complete terms.
+- Three.js (MIT), jsPDF (MIT), Lenis (MIT) and GSAP (Standard GSAP License) retain their notices in the npm packages. See each installed package for complete terms.
 
 ## Installation references
 
@@ -24,4 +24,11 @@ The supplied GLB's attribution is retained in the adapted asset. Adaptations: re
 - CONUEE, operation: https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-funcionamiento?state=published
 - Calorex Fortis official manual: https://calorexw.cdn.prismic.io/calorexw/aJptMqTt2nPbaL7y_FORTIS_MANUAL_SOLAR_TUBOS_EVACUADOS_AMEDIDA_USOWEB-1-.pdf
 
-The house is a procedural educational illustration, not an engineering specification. Pressure, load, anchoring, vents, valves, mixing and backup must follow the selected equipment's manual and a professional site assessment. Solea, its product names, example capacities and prices are fictional. No professional accreditation, savings percentage, review score or warranty is asserted.
+The house is a procedural educational illustration, not an engineering specification. Pressure, load, anchoring, vents, valves, mixing and backup must follow the selected equipment's manual and a professional site assessment. Solea, its product names, example capacities and prices are fictional. No professional accreditation, guaranteed savings, review score or warranty is asserted.
+
+## Savings and environmental references
+
+- CONUEE, domestic solar water heating (2014): https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-en-mi-casa?state=published
+- California Energy Commission, Solar Water Heating Assessment Project (2019): https://www.energy.ca.gov/publications/2019/solar-water-heating-assessment-project-understanding-and-improving-effectiveness
+
+The CONUEE range is a general historical reference for water-heating fuel, not the entire household gas bill. The adjustable example uses a hypothetical 60% reduction and excludes investment, maintenance and fixed charges. California performance figures are not transferred to Mexico; its research supports the relationship between displaced gas and associated emissions.

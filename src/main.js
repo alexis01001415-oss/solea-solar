@@ -1,7 +1,12 @@
 import "./styles.css";
+import "./refinements.css";
 import gsap from "gsap";
+import {
+  initScrollExperience,
+  connectScrollTour,
+} from "./scroll-experience.js";
 import { calculateQuote } from "./quote.js";
-import { brand, installationSteps, sources } from "./config.js";
+import { sources } from "./config.js";
 
 const $ = (s) => document.querySelector(s);
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -37,6 +42,31 @@ matchMedia("(min-width:701px)").addEventListener("change", (e) => {
   if (e.matches) closeMenu();
 });
 $("#year").textContent = new Date().getFullYear();
+const exploreToggle = $("#explore-toggle");
+const exploreMenu = $("#explore-menu");
+function closeExplore(restoreFocus = false) {
+  exploreMenu.hidden = true;
+  exploreToggle.setAttribute("aria-expanded", "false");
+  if (restoreFocus) exploreToggle.focus();
+}
+exploreToggle.addEventListener("click", () => {
+  exploreMenu.hidden = !exploreMenu.hidden;
+  exploreToggle.setAttribute("aria-expanded", String(!exploreMenu.hidden));
+});
+exploreMenu
+  .querySelectorAll("a")
+  .forEach((a) => a.addEventListener("click", () => closeExplore()));
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".nav-explore")) closeExplore();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape")
+    closeExplore(exploreMenu.contains(document.activeElement));
+});
+document.addEventListener("focusin", (e) => {
+  if (!e.target.closest(".nav-explore")) closeExplore();
+});
+initScrollExperience();
 
 if (!reducedMotion.matches) {
   gsap.from(".hero-copy > *", {
@@ -45,13 +75,6 @@ if (!reducedMotion.matches) {
     duration: 0.8,
     ease: "power2.out",
     delay: 0.1,
-    clearProps: "all",
-  });
-  gsap.from(".solar-disc", {
-    scale: 0.87,
-    opacity: 0,
-    duration: 1.25,
-    ease: "power2.out",
     clearProps: "all",
   });
   const reveal = new IntersectionObserver(
@@ -233,131 +256,53 @@ async function bootProduct() {
     console.error("Product view:", error);
     $(".model-loading").hidden = true;
     $(".model-fallback").hidden = false;
-    document
-      .querySelectorAll(".rotate-model")
-      .forEach((b) => (b.disabled = true));
+    document.querySelectorAll(".model-slot").forEach((anchor) => {
+      anchor.tabIndex = -1;
+      anchor.setAttribute("aria-disabled", "true");
+    });
   }
 }
-document
-  .querySelectorAll(".rotate-model")
-  .forEach((b) =>
-    b.addEventListener("click", () =>
-      productModule?.rotateProduct(Number(b.dataset.direction)),
-    ),
-  );
 if ("requestIdleCallback" in window)
   requestIdleCallback(bootProduct, { timeout: 600 });
 else setTimeout(bootProduct, 80);
 
-let tourApi,
-  tourPromise,
-  step = 0,
-  autoplay,
-  touring = false;
-$("#tour-viewport").append($(".tour-loading"));
+let tourPromise;
 async function loadTour() {
   if (tourPromise) return tourPromise;
   tourPromise = import("./tour.js")
-    .then(async (m) => {
-      tourApi = await m.initTour();
+    .then(async (module) => {
+      const api = await module.initTour();
       $(".tour-loading").hidden = true;
-      return tourApi;
+      return api;
     })
     .catch((error) => {
       console.error("Tour view:", error);
       $(".tour-loading").textContent =
-        "Vista 3D no disponible. Sigue los cinco pasos con los controles.";
-      $(".tour-start > p").textContent = "La instalación, paso a paso.";
+        "Vista 3D no disponible. Sigue la historia al deslizar.";
       return null;
     });
   return tourPromise;
 }
-const tourObserver = new IntersectionObserver(
-  (entries) => {
-    if (entries.some((e) => e.isIntersecting)) {
-      loadTour();
-      tourObserver.disconnect();
-    }
-  },
-  { rootMargin: "500px" },
-);
-tourObserver.observe($("#recorrido"));
-function stopAutoplay() {
-  clearInterval(autoplay);
-  autoplay = null;
-  $("#tour-play").firstElementChild.textContent = "play_circle";
-  $("#tour-play").lastElementChild.textContent = "Reproducir";
-  $("#tour-play").setAttribute(
-    "aria-label",
-    "Reproducir recorrido automáticamente",
+connectScrollTour(loadTour);
+
+const savingsRange = $("#savings-budget");
+const money = new Intl.NumberFormat("es-MX", {
+  style: "currency",
+  currency: "MXN",
+  maximumFractionDigits: 0,
+});
+function updateSavings() {
+  const budget = Number(savingsRange.value);
+  $("#savings-monthly").textContent = money.format(budget);
+  $("#savings-annual").textContent = money.format(budget * 0.6 * 12);
+  $("#savings-remaining").textContent = money.format(budget * 0.4);
+  savingsRange.setAttribute(
+    "aria-valuetext",
+    money.format(budget) + " mensuales sólo para calentar agua",
   );
 }
-function showStep(next, { manual = true } = {}) {
-  if (manual) stopAutoplay();
-  step = Math.max(0, Math.min(4, next));
-  touring = true;
-  $(".tour-start").hidden = true;
-  const s = installationSteps[step];
-  $("#step-number").textContent = String(step + 1).padStart(2, "0");
-  $("#step-title").textContent = s.title;
-  $("#step-description").textContent = s.text;
-  $("#step-detail").textContent = s.detail;
-  $(".tour-step-icon").textContent = s.icon;
-  document.querySelectorAll(".step-dot").forEach((b, i) => {
-    b.classList.toggle("active", i === step);
-    if (i === step) b.setAttribute("aria-current", "step");
-    else b.removeAttribute("aria-current");
-  });
-  $("#tour-prev").disabled = step === 0;
-  $("#tour-next").disabled = step === 4;
-  loadTour().then((api) => api?.goTo(step));
-  if (!reducedMotion.matches)
-    gsap.fromTo(
-      "#tour-copy",
-      { opacity: 0.5, y: 8 },
-      { opacity: 1, y: 0, duration: 0.4, clearProps: "all" },
-    );
-}
-$("#start-tour").addEventListener("click", () => showStep(0));
-document
-  .querySelectorAll(".step-dot")
-  .forEach((b) =>
-    b.addEventListener("click", () => showStep(Number(b.dataset.step))),
-  );
-$("#tour-prev").addEventListener("click", () => showStep(step - 1));
-$("#tour-next").addEventListener("click", () => showStep(step + 1));
-$("#tour-play").addEventListener("click", () => {
-  if (autoplay) {
-    stopAutoplay();
-    return;
-  }
-  showStep(step === 4 ? 0 : step);
-  $("#tour-play").firstElementChild.textContent = "pause_circle";
-  $("#tour-play").lastElementChild.textContent = "Pausar";
-  $("#tour-play").setAttribute("aria-label", "Pausar el recorrido");
-  autoplay = setInterval(() => {
-    if (step >= 4) {
-      stopAutoplay();
-      return;
-    }
-    showStep(step + 1, { manual: false });
-  }, 6500);
-});
-$("#tour-reset").addEventListener("click", () => {
-  stopAutoplay();
-  tourApi?.overview();
-  $(".tour-start").hidden = false;
-  touring = false;
-});
-new IntersectionObserver(
-  (entries) => {
-    if (!entries[0].isIntersecting) stopAutoplay();
-  },
-  { threshold: 0.1 },
-).observe($("#recorrido"));
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) stopAutoplay();
-});
+savingsRange.addEventListener("input", updateSavings);
+updateSavings();
 
 // Build-time JSON-LD is used for search engines (see scripts/seo.mjs).
 if (import.meta.env.DEV && new URLSearchParams(location.search).has("audit")) {

@@ -2,15 +2,10 @@ import gsap from "gsap";
 import { THREE, getHeater, makeRenderer, addLighting } from "./three-shared.js";
 
 let spin = 0,
-  draw;
-export function rotateProduct(direction) {
-  spin += (direction * Math.PI) / 4;
-  draw?.();
-}
+  pitch = 0.19;
 
 export async function initProduct() {
   const canvas = document.querySelector("#product-canvas");
-  const stage = document.querySelector("#product-stage");
   const story = document.querySelector("#solar-story");
   const anchors = [0, 1, 2].map((i) =>
     document.querySelector(`#model-anchor-${i}`),
@@ -30,6 +25,11 @@ export async function initProduct() {
   scene.add(root);
   const heater = await getHeater(3.5);
   root.add(heater);
+  // Pointer surface follows the rendered product even between the static chapters.
+  const hitArea = document.createElement("div");
+  hitArea.className = "product-hit-area";
+  hitArea.setAttribute("aria-hidden", "true");
+  document.body.append(hitArea);
   const shadowCanvas = document.createElement("canvas");
   shadowCanvas.width = 128;
   shadowCanvas.height = 128;
@@ -52,10 +52,7 @@ export async function initProduct() {
   let w,
     h,
     raf,
-    active = true,
-    lastScroll = -1,
-    lastSpin = NaN,
-    settling = 0;
+    active = true;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   let lastAngle = -0.48;
   function resize() {
@@ -66,7 +63,6 @@ export async function initProduct() {
     canvas.style.height = `${h}px`;
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    lastScroll = -1;
     requestDraw();
   }
   const ease = (t) => t * t * (3 - 2 * t);
@@ -94,6 +90,12 @@ export async function initProduct() {
     const cy = lerp(centers[index], centers[index + 1]);
     const width = lerp(r0.width, r1.width),
       height = lerp(r0.height, r1.height);
+    Object.assign(hitArea.style, {
+      left: `${cx - width * 0.44}px`,
+      top: `${cy - height * 0.43}px`,
+      width: `${width * 0.88}px`,
+      height: `${height * 0.86}px`,
+    });
     const viewHeight =
       2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * 11;
     const canvasTop = canvas.getBoundingClientRect().top;
@@ -110,16 +112,64 @@ export async function initProduct() {
     lastAngle = reduce.matches
       ? angle
       : THREE.MathUtils.lerp(lastAngle, angle, 0.13);
-    heater.rotation.set(0.19, lastAngle, -0.018);
+    heater.rotation.set(pitch, lastAngle, -0.018);
     renderer.render(scene, camera);
-    lastScroll = scrollY;
-    lastSpin = spin;
     if (Math.abs(lastAngle - angle) > 0.001) requestDraw();
   }
   function requestDraw() {
     if (!raf) raf = requestAnimationFrame(render);
   }
-  draw = requestDraw;
+  let drag;
+  [...anchors, hitArea].forEach((anchor) => {
+    anchor.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || !active) return;
+      drag = {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+        touch: event.pointerType === "touch",
+      };
+      anchor.setPointerCapture(event.pointerId);
+      anchor.classList.add("is-dragging");
+    });
+    anchor.addEventListener("pointermove", (event) => {
+      if (!drag || drag.id !== event.pointerId) return;
+      spin += (event.clientX - drag.x) * 0.009;
+      if (!drag.touch)
+        pitch = Math.max(
+          -0.35,
+          Math.min(0.65, pitch + (event.clientY - drag.y) * 0.005),
+        );
+      drag.x = event.clientX;
+      drag.y = event.clientY;
+      requestDraw();
+    });
+    const release = () => {
+      drag = null;
+      anchor.classList.remove("is-dragging");
+    };
+    anchor.addEventListener("pointerup", release);
+    anchor.addEventListener("pointercancel", release);
+    anchor.addEventListener("lostpointercapture", release);
+    anchor.addEventListener("keydown", (event) => {
+      if (
+        !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home"].includes(
+          event.key,
+        )
+      )
+        return;
+      event.preventDefault();
+      if (event.key === "Home") {
+        spin = 0;
+        pitch = 0.19;
+      }
+      if (event.key === "ArrowLeft") spin -= 0.22;
+      if (event.key === "ArrowRight") spin += 0.22;
+      if (event.key === "ArrowUp") pitch = Math.max(-0.35, pitch - 0.1);
+      if (event.key === "ArrowDown") pitch = Math.min(0.65, pitch + 0.1);
+      requestDraw();
+    });
+  });
   window.addEventListener("scroll", requestDraw, { passive: true });
   window.addEventListener("resize", resize, { passive: true });
   document.addEventListener("visibilitychange", () => {
@@ -128,6 +178,7 @@ export async function initProduct() {
   new IntersectionObserver(
     (entries) => {
       active = entries[0].isIntersecting;
+      hitArea.hidden = !active;
       if (active) requestDraw();
     },
     { rootMargin: "100px" },
@@ -136,16 +187,20 @@ export async function initProduct() {
     e.preventDefault();
     active = false;
     document.querySelector(".model-fallback").hidden = false;
-    document
-      .querySelectorAll(".rotate-model")
-      .forEach((b) => (b.disabled = true));
+    hitArea.hidden = true;
+    anchors.forEach((anchor) => {
+      anchor.setAttribute("aria-disabled", "true");
+      anchor.tabIndex = -1;
+    });
   });
   canvas.addEventListener("webglcontextrestored", () => {
     active = true;
     document.querySelector(".model-fallback").hidden = true;
-    document
-      .querySelectorAll(".rotate-model")
-      .forEach((b) => (b.disabled = false));
+    hitArea.hidden = false;
+    anchors.forEach((anchor) => {
+      anchor.removeAttribute("aria-disabled");
+      anchor.tabIndex = 0;
+    });
     requestDraw();
   });
   resize();

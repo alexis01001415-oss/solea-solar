@@ -7,14 +7,6 @@
     format("woff2");
 }
 @font-face {
-  font-family: "Lora Variable";
-  font-style: italic;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("@fontsource-variable/lora/files/lora-latin-wght-italic.woff2")
-    format("woff2");
-}
-@font-face {
   font-family: "Raleway Variable";
   font-style: normal;
   font-weight: 100 900;
@@ -468,24 +460,6 @@ legend {
 .location-note .icon {
   font-size: 16px;
 }
-.hero-orbit {
-  position: absolute;
-  border: 1px solid #9b4f2010;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.orbit-one {
-  width: 900px;
-  height: 900px;
-  right: -190px;
-  top: -30px;
-}
-.orbit-two {
-  width: 740px;
-  height: 740px;
-  right: -110px;
-  top: 50px;
-}
 .model-slot {
   position: relative;
   min-width: 0;
@@ -494,88 +468,6 @@ legend {
 }
 .hero-model {
   height: 500px;
-}
-.solar-disc {
-  width: 91%;
-  aspect-ratio: 1;
-  position: absolute;
-  top: 8%;
-  left: 9%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 38% 32%,
-    #eec891 0%,
-    #ddb784 45%,
-    #c79768 100%
-  );
-  box-shadow:
-    inset 0 0 60px #fefae050,
-    0 60px 90px -45px #9b4f2040;
-}
-.solar-disc:after {
-  content: "";
-  position: absolute;
-  inset: -17px;
-  border: 1px solid #bc6c2530;
-  border-radius: 50%;
-}
-.model-kicker {
-  position: absolute;
-  right: 4%;
-  top: -20px;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  writing-mode: vertical-rl;
-  color: #62634c;
-}
-.model-stamp {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 5;
-  background: #faf7eac9;
-  border: 1px solid #fefae0a8;
-  box-shadow: 0 8px 24px #4934120a;
-  padding: 14px 17px;
-  border-radius: 8px;
-  backdrop-filter: blur(12px);
-  font-size: 12px;
-  line-height: 1.6;
-  transform: rotate(-4deg);
-}
-.model-stamp .icon {
-  font-size: 31px;
-  color: var(--copper);
-}
-.model-stamp strong {
-  font-weight: 650;
-}
-.model-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  z-index: 6;
-}
-.model-controls > span {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-}
-.model-controls .icon-button {
-  width: 40px;
-  height: 40px;
-  background: #f8f5e97d;
-}
-.model-controls .icon {
-  font-size: 20px;
 }
 .model-loading {
   position: absolute;
@@ -618,27 +510,6 @@ legend {
 }
 .hero-bottom .icon {
   font-size: 18px;
-}
-.promise-strip {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  justify-content: space-around;
-  gap: 24px;
-  padding: 23px var(--pad);
-  background: #e9e8da;
-  border-block: 1px solid var(--line);
-}
-.promise-strip p {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  font-weight: 550;
-}
-.promise-strip .icon {
-  font-size: 23px;
-  color: var(--olive);
 }
 .benefits {
   background: #f8f5e9;
@@ -802,14 +673,6 @@ legend {
   line-height: 1.85;
   padding-bottom: 4px;
 }
-.tour-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
-  border: 1px solid #fefae025;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
 .tour-viewport {
   height: 570px;
   background: radial-gradient(ellipse at 50% 45%, #e9ddbb, #bcb898);
@@ -838,31 +701,6 @@ legend {
 .tour-scene-caption .icon {
   font-size: 16px;
 }
-.tour-start {
-  position: absolute;
-  bottom: 65px;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  color: var(--green);
-  pointer-events: none;
-}
-.tour-start > p {
-  font-family: var(--serif);
-  font-size: 24px;
-  letter-spacing: -0.02em;
-  text-shadow: 0 1px 8px #fefae0;
-}
-.tour-start > .icon {
-  display: none;
-}
-.tour-start .button {
-  pointer-events: auto;
-  box-shadow: 0 8px 25px #28361825;
-}
 .tour-loading {
   font-size: 12px;
   background: #fefae0c9;
@@ -886,91 +724,6 @@ legend {
 }
 .tour-scene-bottom .icon-button {
   background: #fefae070;
-}
-.tour-story {
-  display: flex;
-  flex-direction: column;
-  padding: 32px 32px 24px;
-  background: #334123;
-}
-.tour-progress {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-  padding-bottom: 34px;
-}
-.step-dot {
-  background: none;
-  color: #c9ccad;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  font-size: 12px;
-  border: 1px solid #fefae02b;
-  transition:
-    background 0.3s,
-    color 0.3s;
-}
-.step-dot.active {
-  background: var(--sand);
-  color: var(--green);
-  border-color: var(--sand);
-}
-.step-dot:hover {
-  border-color: var(--sand);
-}
-#tour-copy {
-  flex: 1;
-}
-.tour-step-icon {
-  font-size: 32px;
-  color: var(--sand);
-  margin-bottom: 22px;
-}
-.tour-story .eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  margin-bottom: 14px;
-}
-.tour-story h3 {
-  font-size: clamp(26px, 2.3vw, 38px);
-  line-height: 1.2;
-  letter-spacing: -0.035em;
-  max-width: 290px;
-  margin-bottom: 20px;
-}
-.tour-story #step-description {
-  font-size: 15px;
-  line-height: 1.85;
-  color: #dcdfc9;
-}
-.tour-story #step-detail {
-  font-size: 12px;
-  line-height: 1.7;
-  font-style: italic;
-  color: #bdc3a8;
-  margin-top: 25px;
-}
-.tour-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  border-top: 1px solid #fefae024;
-  padding-top: 20px;
-  margin-top: 28px;
-}
-.tour-nav .icon-button {
-  border-color: #fefae030;
-  color: var(--cream);
-}
-.tour-nav .icon-button:hover {
-  background: #fefae010;
-}
-.tour-nav .text-button {
-  font-size: 12px;
-  color: var(--cream);
-  gap: 6px;
 }
 .tour-disclaimer {
   display: flex;
@@ -1078,7 +831,7 @@ legend {
   align-items: center;
   gap: 24px;
   margin-top: 76px;
-  color: #838b64;
+  color: var(--olive);
 }
 .quote-decoration > .icon {
   font-size: 78px;
@@ -1609,15 +1362,6 @@ dialog h2 {
   .hero {
     min-height: 690px;
   }
-  .model-stamp {
-    top: 30px;
-    padding: 10px 12px;
-    font-size: 11px;
-    left: -5%;
-  }
-  .tour-story {
-    padding: 26px 24px 24px;
-  }
   .tour-viewport {
     height: 550px;
   }
@@ -1692,33 +1436,6 @@ dialog h2 {
   .hero-model {
     height: 390px;
   }
-  .model-stamp {
-    font-size: 10px;
-    top: 0;
-  }
-  .model-stamp .icon {
-    font-size: 25px;
-  }
-  .model-kicker {
-    display: none;
-  }
-  .hero-model .model-controls {
-    bottom: -20px;
-  }
-  .model-controls {
-    gap: 8px;
-  }
-  .model-controls > span {
-    font-size: 8px;
-  }
-  .promise-strip p {
-    font-size: 11px;
-    gap: 7px;
-  }
-  .promise-strip {
-    padding-inline: 24px;
-    gap: 16px;
-  }
   .story-panel:not(.hero) {
     padding-block: 80px;
     gap: 6%;
@@ -1763,38 +1480,8 @@ dialog h2 {
     max-width: 230px;
     padding-top: 44px;
   }
-  .tour-layout {
-    grid-template-columns: minmax(0, 1.4fr) minmax(265px, 1fr);
-  }
   .tour-viewport {
     height: 550px;
-  }
-  .tour-progress {
-    gap: 5px;
-  }
-  .step-dot {
-    width: 35px;
-    height: 35px;
-    font-size: 10px;
-  }
-  .tour-story h3 {
-    font-size: 29px;
-  }
-  .tour-story #step-description {
-    font-size: 14px;
-  }
-  .tour-nav {
-    gap: 8px;
-  }
-  .tour-nav .text-button {
-    font-size: 11px;
-  }
-  .tour-nav .icon-button {
-    width: 36px;
-    height: 36px;
-  }
-  .tour-story {
-    padding-inline: 20px;
   }
   .tour-scene-caption {
     font-size: 8px;
@@ -1805,9 +1492,6 @@ dialog h2 {
   }
   .tour-scene-bottom > span {
     font-size: 8px;
-  }
-  .tour-start > p {
-    font-size: 21px;
   }
   .life-section {
     padding-top: 76px;
@@ -1959,26 +1643,6 @@ dialog h2 {
     width: min(100%, 470px);
     margin: 25px auto 10px;
   }
-  .solar-disc {
-    width: 83%;
-    left: 12%;
-    top: 1%;
-  }
-  .model-stamp {
-    left: 2%;
-    top: 27px;
-    font-size: 11px;
-    transform: rotate(-4deg);
-  }
-  .hero-model .model-controls {
-    bottom: -7px;
-  }
-  .model-controls > span {
-    font-size: 9px;
-  }
-  .model-controls {
-    gap: 14px;
-  }
   .hero-bottom {
     bottom: 22px;
     font-size: 8px;
@@ -1993,37 +1657,6 @@ dialog h2 {
   }
   .hero-bottom .icon {
     font-size: 15px;
-  }
-  .hero-orbit {
-    width: 590px;
-    height: 590px;
-    top: auto;
-    bottom: -75px;
-    right: -210px;
-  }
-  .orbit-two {
-    width: 490px;
-    height: 490px;
-    bottom: -20px;
-    right: -160px;
-  }
-  .promise-strip {
-    padding: 18px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 13px 10px;
-  }
-  .promise-strip p {
-    font-size: 10px;
-    line-height: 1.5;
-    justify-content: center;
-    gap: 7px;
-  }
-  .promise-strip .icon {
-    font-size: 20px;
-  }
-  .promise-strip p:last-child {
-    grid-column: 1/-1;
   }
   .story-panel:not(.hero) {
     grid-template-columns: 1fr;
@@ -2073,9 +1706,6 @@ dialog h2 {
   .benefits .small-note {
     font-size: 11px;
   }
-  .benefits .model-controls {
-    bottom: -6px;
-  }
   .technical-label {
     font-size: 9px;
     top: -5px;
@@ -2103,9 +1733,6 @@ dialog h2 {
     bottom: 19%;
     left: 0;
   }
-  .technology .model-controls {
-    bottom: -16px;
-  }
   .tour-section {
     padding: 66px var(--pad) 28px;
   }
@@ -2129,75 +1756,12 @@ dialog h2 {
   .section-top > p br {
     display: none;
   }
-  .tour-layout {
-    grid-template-columns: 1fr;
-    border-radius: 8px;
-  }
   .tour-viewport {
     height: 390px;
   }
   .tour-scene-caption {
     top: 16px;
     font-size: 8px;
-  }
-  .tour-start {
-    bottom: 55px;
-    gap: 10px;
-  }
-  .tour-start > p {
-    font-size: 22px;
-  }
-  .tour-start .button {
-    font-size: 13px;
-    min-height: 46px;
-    padding: 11px 20px;
-  }
-  .tour-story {
-    padding: 22px 24px;
-  }
-  .tour-progress {
-    padding-bottom: 22px;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-  .step-dot {
-    width: 38px;
-    height: 38px;
-    font-size: 11px;
-  }
-  .tour-step-icon {
-    float: right;
-    font-size: 36px;
-    margin: 8px 0 0 16px;
-  }
-  .tour-story .eyebrow {
-    margin-bottom: 10px;
-  }
-  .tour-story h3 {
-    font-size: 30px;
-    max-width: 100%;
-    min-height: 72px;
-    margin-bottom: 13px;
-  }
-  .tour-story #step-description {
-    font-size: 14px;
-    min-height: 78px;
-  }
-  .tour-story #step-detail {
-    margin-top: 10px;
-    font-size: 12px;
-    min-height: 21px;
-  }
-  .tour-nav {
-    margin-top: 22px;
-    padding-top: 16px;
-  }
-  .tour-nav .icon-button {
-    width: 42px;
-    height: 42px;
-  }
-  .tour-nav .text-button {
-    font-size: 12px;
   }
   .tour-disclaimer {
     font-size: 10px;
@@ -2449,9 +2013,6 @@ dialog h2 {
   .hero-model {
     height: 335px;
   }
-  .model-stamp {
-    font-size: 10px;
-  }
   .hero-bottom > span:first-child {
     max-width: 190px;
   }
@@ -2464,20 +2025,8 @@ dialog h2 {
   .tour-viewport {
     height: 340px;
   }
-  .tour-progress {
-    gap: 12px;
-  }
-  .tour-story {
-    padding: 22px 19px;
-  }
-  .tour-story h3 {
-    font-size: 28px;
-  }
   .life-section h2 {
     font-size: 25px;
-  }
-  .promise-strip p {
-    font-size: 9px;
   }
   .contact-form .form-grid {
     grid-template-columns: 1fr;
@@ -2503,7 +2052,6 @@ dialog h2 {
 @media print {
   .site-header,
   .product-stage,
-  .model-controls,
   .tour-viewport,
   .site-footer,
   .hero-ctas,
@@ -2523,12 +2071,6 @@ dialog h2 {
   .tour-section {
     background: #fff;
     color: #000;
-  }
-  .tour-story {
-    background: #fff;
-  }
-  .tour-story p {
-    color: #000 !important;
   }
   body {
     background: #fff;
@@ -2559,7 +2101,6 @@ dialog h2 {
 .desktop-nav a,
 .button-small,
 .hero-ctas .text-button,
-.promise-strip p,
 .text-button {
   font-size: 14px;
 }
@@ -2567,8 +2108,6 @@ dialog h2 {
 .hero .location-note,
 .small-note,
 .benefits .small-note,
-.model-controls > span,
-.model-kicker,
 .technical-label,
 .hero-bottom,
 .life-bottom > span:last-child,
@@ -2579,7 +2118,6 @@ dialog h2 {
 .tour-disclaimer,
 .tour-scene-caption,
 .tour-scene-bottom > span,
-.tour-story .eyebrow,
 .coverage-section > div > span,
 .coverage-section > div > p,
 .footer-meta,
@@ -2588,14 +2126,8 @@ dialog h2 {
 .contact-privacy {
   font-size: 12px;
 }
-.model-controls > span {
-  letter-spacing: 0.08em;
-}
 .hero-bottom {
   letter-spacing: 0.08em;
-}
-.model-kicker {
-  font-size: 10px;
 }
 .quote-card legend,
 .quote-card label,
@@ -2622,16 +2154,8 @@ textarea,
 .contact-form .consent {
   font-size: 13px;
 }
-.tour-story #step-description,
 .section-top > p {
   font-size: 16px;
-}
-.tour-story #step-detail {
-  font-size: 13px;
-}
-.tour-nav .text-button,
-.step-dot {
-  font-size: 13px;
 }
 .tour-viewport {
   height: 620px;
@@ -2653,17 +2177,8 @@ textarea,
   .desktop-nav a {
     font-size: 12px;
   }
-  .tour-layout {
-    grid-template-columns: minmax(0, 1.3fr) minmax(285px, 1fr);
-  }
-  .tour-story {
-    padding-inline: 23px;
-  }
 }
 @media (max-width: 700px) {
-  .tour-layout {
-    grid-template-columns: 1fr;
-  }
   .hero .eyebrow {
     font-size: 10px;
   }
@@ -2689,14 +2204,8 @@ textarea,
   .hero-bottom > a {
     right: 37px;
   }
-  .promise-strip p {
-    font-size: 12px;
-  }
   .story-panel .eyebrow {
     font-size: 11px;
-  }
-  .model-controls > span {
-    font-size: 10px;
   }
   .tour-viewport {
     height: 390px;
@@ -2704,12 +2213,6 @@ textarea,
   .tour-scene-caption,
   .tour-scene-bottom > span {
     font-size: 10px;
-  }
-  .tour-story #step-description {
-    min-height: 84px;
-  }
-  .tour-progress {
-    gap: 13px;
   }
   .tour-disclaimer {
     font-size: 12px;
@@ -2727,12 +2230,6 @@ textarea,
   .quote-card .button,
   .contact-form .button {
     font-size: 14px;
-  }
-  .tour-story h3 {
-    min-height: 72px;
-  }
-  .tour-story #step-detail {
-    min-height: 40px;
   }
 }
 @media (max-width: 370px) {
@@ -2758,12 +2255,6 @@ textarea,
   }
   .quote-price strong {
     font-size: 26px;
-  }
-  .tour-progress {
-    gap: 10px;
-  }
-  .model-controls > span {
-    font-size: 9px;
   }
   .contact-form .consent {
     font-size: 12px;
