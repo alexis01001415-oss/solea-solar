@@ -6,6 +6,14 @@ export const brand = {
 
 export const sources = [
   {
+    title: "CONUEE · Respaldo para el calentamiento de agua",
+    url: "https://www.gob.mx/conuee/acciones-y-programas/calentamiento-de-agua",
+  },
+  {
+    title: "CONAVI · Calentador auxiliar y suministro de gas",
+    url: "https://siesco.conavi.gob.mx/doc/tecnicos/ecotecnologias/conjunto_habitacional/gas.pdf",
+  },
+  {
     title: "CONUEE · Referencia de ahorro doméstico (2014)",
     url: "https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-en-mi-casa?state=published",
   },

@@ -280,8 +280,8 @@
                 <div>
                   <h3>Tu casa lo disfruta</h3>
                   <p>
-                    Se integra a tu instalación, con un respaldo compatible para
-                    cuando se necesite.
+                    Puede integrarse con un calentador de respaldo compatible
+                    para los días de menor sol.
                   </p>
                 </div>
               </li>
@@ -312,6 +312,17 @@
         </section>
       </div>
 
+      <div class="tour-portal" aria-hidden="true">
+        <div class="portal-sticky">
+          <div class="portal-surface">
+            <div class="portal-caption">
+              <span>DEL SOL A TU HOGAR</span>
+              <p>Todo empieza<br />con un nuevo día.</p>
+              <span class="icon">south</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <section id="recorrido" class="tour-section">
         <div class="section-top reveal">
           <div>
@@ -337,7 +348,7 @@
               class="tour-viewport"
               id="tour-viewport"
               role="region"
-              aria-label="Casa mexicana con azotea, calentador solar y tuberías. La cámara sigue los cinco momentos que se explican a continuación."
+              aria-label="Casa con calentador solar, tanque de gas LP y calentador auxiliar conectado como respaldo. La cámara sigue los cinco momentos que se explican a continuación."
             >
               <canvas id="tour-canvas" aria-hidden="true"></canvas>
               <span class="tour-scene-caption"
@@ -354,9 +365,10 @@
               <div class="tour-track" aria-hidden="true"><span></span></div>
             </div>
             <p class="tour-disclaimer">
-              <span class="icon" aria-hidden="true">info</span> Sistema por
-              gravedad ilustrativo. La solución y las protecciones se definen
-              durante la visita técnica.
+              <span class="icon" aria-hidden="true">info</span> Esquema con
+              respaldo a gas LP ilustrativo. Ubicación, conexiones y
+              protecciones requieren valoración profesional y el manual de los
+              equipos.
             </p>
           </div>
           <div class="tour-chapters">
@@ -409,16 +421,22 @@
             <article class="tour-chapter" id="momento-4" data-step="3">
               <div>
                 <p class="eyebrow">
-                  <span class="icon" aria-hidden="true">water_drop</span>
+                  <span class="icon" aria-hidden="true">thermostat</span>
                   MOMENTO 04 / 05
                 </p>
-                <h3>El calor encuentra su camino.</h3>
+                <h3>El sol primero.<br />Un respaldo cuando hace falta.</h3>
                 <p class="chapter-description">
-                  Conectamos tuberías aisladas y protecciones compatibles con la
-                  presión de tu casa.
+                  Recomendamos un calentador auxiliar de gas compatible para
+                  días nublados o momentos de mayor consumo.
                 </p>
+                <div class="backup-key">
+                  <span class="key-solar">Agua del solar</span
+                  ><span class="key-gas">Gas LP</span
+                  ><span class="key-backup">Calentador auxiliar</span>
+                </div>
                 <p class="chapter-detail">
-                  Del sol a ese momento bajo el agua.
+                  El tanque almacena gas. El calentador auxiliar aporta el calor
+                  de respaldo.
                 </p>
               </div>
             </article>
@@ -550,7 +568,16 @@
           </div>
           <div class="impact-rows">
             <article class="reveal">
-              <span class="icon" aria-hidden="true">sunny</span>
+              <figure class="impact-visual">
+                <img
+                  src="/images/impacto-sol.webp"
+                  width="768"
+                  height="512"
+                  alt="Calentador solar en una azotea con luz cálida. Imagen conceptual provisional."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
               <div>
                 <span class="impact-number">01 / EL ORIGEN</span>
                 <h3>La energía ya llega a tu techo.</h3>
@@ -561,7 +588,16 @@
               </div>
             </article>
             <article class="reveal">
-              <span class="icon" aria-hidden="true">eco</span>
+              <figure class="impact-visual">
+                <img
+                  src="/images/impacto-aire.webp"
+                  width="768"
+                  height="512"
+                  alt="Hojas verdes iluminadas por el sol. Imagen conceptual provisional."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
               <div>
                 <span class="impact-number">02 / LO QUE REDUCES</span>
                 <h3>Menos gas quemado. Menos emisiones.</h3>
@@ -572,7 +608,16 @@
               </div>
             </article>
             <article class="reveal">
-              <span class="icon" aria-hidden="true">water_drop</span>
+              <figure class="impact-visual">
+                <img
+                  src="/images/impacto-agua.webp"
+                  width="768"
+                  height="512"
+                  alt="Gotas de agua junto a una regadera de cobre. Imagen conceptual provisional."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
               <div>
                 <span class="impact-number">03 / LO QUE TAMBIÉN CUENTA</span>
                 <h3>El agua sigue siendo valiosa.</h3>
@@ -618,10 +663,154 @@
               </p>
             </div>
           </div>
-          <div class="quote-decoration" aria-hidden="true">
-            <span class="icon">sunny</span
-            ><span>EL FUTURO<br />SE SIENTE CÁLIDO.</span>
-          </div>
+          <figure class="solar-flow">
+            <div class="flow-heading">
+              <span class="icon" aria-hidden="true">sunny</span
+              ><span>UNA ENERGÍA QUE FLUYE</span>
+            </div>
+            <svg
+              class="flow-drawing"
+              viewBox="0 0 480 300"
+              role="img"
+              aria-labelledby="flow-title"
+              aria-describedby="flow-description"
+            >
+              <title id="flow-title">Del sol al agua de tu hogar</title>
+              <desc id="flow-description">
+                Ilustración animada: la energía llega a los tubos, el calor se
+                conserva en el tanque y el agua caliente sigue su camino hacia
+                el hogar. Esquema conceptual.
+              </desc>
+              <defs>
+                <linearGradient id="flow-metal" x1="0" y1="0" x2="0" y2="1">
+                  <stop stop-color="#fffdf2" />
+                  <stop offset=".25" stop-color="#d1d4bb" />
+                  <stop offset=".53" stop-color="#fffdf2" />
+                  <stop offset="1" stop-color="#7a855d" />
+                </linearGradient>
+                <linearGradient id="flow-glass" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#8caa99" stop-opacity=".35" />
+                  <stop offset=".5" stop-color="#e4ead2" stop-opacity=".7" />
+                  <stop offset="1" stop-color="#556743" stop-opacity=".85" />
+                </linearGradient>
+                <linearGradient id="flow-warm">
+                  <stop stop-color="#606c38" />
+                  <stop offset="1" stop-color="#bc6c25" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M46 250H434"
+                fill="none"
+                stroke="#606c38"
+                stroke-opacity=".2"
+              />
+              <g
+                fill="none"
+                stroke="#606c38"
+                stroke-width="3"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M143 133L107 248H310L321 133M310 248L342 219H128M321 133L342 219"
+                  opacity=".5"
+                />
+              </g>
+              <g
+                fill="none"
+                stroke="#dda15e"
+                stroke-width="1.5"
+                class="solar-rays"
+              >
+                <path d="M130 25L170 83M177 20L213 77M223 17L253 71" />
+              </g>
+              <g
+                fill="none"
+                stroke="#bc6c25"
+                stroke-width="2.5"
+                class="energy-stream"
+              >
+                <path d="M130 25L170 83M177 20L213 77M223 17L253 71" />
+              </g>
+              <g fill="url(#flow-glass)" stroke="#606c38" stroke-opacity=".6">
+                <path
+                  d="M149 127L111 219Q109 226 115 227Q122 228 124 222L163 130Z"
+                />
+                <path
+                  d="M167 127L129 219Q127 226 133 227Q140 228 142 222L181 130Z"
+                />
+                <path
+                  d="M185 127L147 219Q145 226 151 227Q158 228 160 222L199 130Z"
+                />
+                <path
+                  d="M203 127L165 219Q163 226 169 227Q176 228 178 222L217 130Z"
+                />
+                <path
+                  d="M221 127L183 219Q181 226 187 227Q194 228 196 222L235 130Z"
+                />
+                <path
+                  d="M239 127L201 219Q199 226 205 227Q212 228 214 222L253 130Z"
+                />
+                <path
+                  d="M257 127L219 219Q217 226 223 227Q230 228 232 222L271 130Z"
+                />
+                <path
+                  d="M275 127L237 219Q235 226 241 227Q248 228 250 222L289 130Z"
+                />
+                <path
+                  d="M293 127L255 219Q253 226 259 227Q266 228 268 222L307 130Z"
+                />
+              </g>
+              <path
+                d="M143 102H314Q333 103 332 123Q331 143 313 143H145Q126 143 126 122Q126 102 143 102Z"
+                fill="url(#flow-metal)"
+                stroke="#606c38"
+                stroke-width="1.5"
+              />
+              <ellipse
+                cx="314"
+                cy="123"
+                rx="15"
+                ry="20"
+                fill="#adb797"
+                stroke="#606c38"
+              />
+              <ellipse
+                cx="314"
+                cy="123"
+                rx="10"
+                ry="14"
+                fill="#d1d6bc"
+                stroke="#606c38"
+                stroke-opacity=".45"
+              />
+              <path
+                d="M327 122H371Q389 122 389 140V194Q389 210 407 210H439"
+                fill="none"
+                stroke="#606c38"
+                stroke-opacity=".16"
+                stroke-width="12"
+              />
+              <path
+                d="M327 122H371Q389 122 389 140V194Q389 210 407 210H439"
+                fill="none"
+                stroke="url(#flow-warm)"
+                stroke-width="4"
+              />
+              <path
+                class="water-stream"
+                d="M327 122H371Q389 122 389 140V194Q389 210 407 210H439"
+                fill="none"
+                stroke="#fefae0"
+                stroke-width="2.5"
+              />
+            </svg>
+            <div class="flow-labels">
+              <span>Capta</span><span>Conserva</span><span>Disfruta</span>
+            </div>
+            <figcaption>
+              El sol se transforma en calor.<br />Tu día sigue su curso.
+            </figcaption>
+          </figure>
         </div>
         <form id="quote-form" class="quote-card">
           <div class="card-heading">
@@ -698,8 +887,8 @@
           </button>
           <p class="quote-note">
             Importes y capacidades simulados para este prototipo. La selección y
-            el precio final requieren una visita técnica. No constituye una
-            oferta comercial.
+            el precio final requieren una visita técnica. El respaldo se valora
+            por separado. No constituye una oferta comercial.
           </p>
           <p id="quote-status" class="form-status" role="status"></p>
         </form>
@@ -729,9 +918,10 @@
               >
             </summary>
             <p>
-              El rendimiento cambia con el clima. Un calentador de respaldo
-              compatible puede complementar el sistema cuando la energía solar
-              no sea suficiente. La conexión se revisa para cada hogar.
+              El rendimiento cambia con el clima. Recomendamos un calentador
+              auxiliar de gas compatible para complementar el agua caliente
+              cuando el sol no sea suficiente. La solución y la conexión se
+              revisan para cada hogar.
             </p>
           </details>
           <details>
@@ -886,6 +1076,21 @@
               revisar la calidad del agua y seguir el mantenimiento del
               fabricante. El instalador debe explicar los cuidados del modelo
               elegido.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿El calentador solar necesita un tanque de gas?<span
+                class="icon"
+                aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              El solar obtiene calor sin quemar gas. Como apoyo recomendamos un
+              calentador auxiliar compatible, que puede aprovechar el suministro
+              de gas existente. Un tanque de gas por sí solo no calienta el agua
+              ni sustituye al calentador auxiliar.
             </p>
           </details>
         </div>

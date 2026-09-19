@@ -1,5 +1,6 @@
 import "./styles.css";
 import "./refinements.css";
+import "./edition-three.css";
 import gsap from "gsap";
 import {
   initScrollExperience,

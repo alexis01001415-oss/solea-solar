@@ -26,6 +26,41 @@ export function initScrollExperience() {
   updateHeader();
   const mm = gsap.matchMedia();
   mm.add("(prefers-reduced-motion: no-preference)", () => {
+    const portal = document.querySelector(".tour-portal");
+    if (portal) {
+      const surface = portal.querySelector(".portal-surface");
+      const caption = portal.querySelector(".portal-caption");
+      gsap.fromTo(
+        surface,
+        { clipPath: "circle(0% at 50% 50%)" },
+        {
+          clipPath: "circle(72% at 50% 50%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: portal,
+            start: "top 78%",
+            end: "bottom bottom",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+      gsap.fromTo(
+        caption,
+        { opacity: 0, y: 32 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: portal,
+            start: "top 32%",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        },
+      );
+    }
     document.querySelectorAll(".word-motion").forEach((word) => {
       gsap.from(word, {
         yPercent: 115,
@@ -62,6 +97,24 @@ export function initScrollExperience() {
     });
   });
   document.fonts.ready.then(() => ScrollTrigger.refresh());
+  const flow = document.querySelector(".solar-flow");
+  if (flow) {
+    let visible = false;
+    const updateFlow = () =>
+      flow.classList.toggle(
+        "is-playing",
+        visible && !document.hidden && !reducedMotion.matches,
+      );
+    new IntersectionObserver(
+      (entries) => {
+        visible = entries[0].isIntersecting;
+        updateFlow();
+      },
+      { threshold: 0.15 },
+    ).observe(flow);
+    document.addEventListener("visibilitychange", updateFlow);
+    reducedMotion.addEventListener("change", updateFlow);
+  }
 }
 
 export function connectScrollTour(loadTour) {

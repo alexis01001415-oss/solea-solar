@@ -212,7 +212,7 @@ export async function initTour() {
   for (let i = 0; i < 7; i++)
     box(5.85, 0.006, 0.012, 0, 5.45, -2.68 + i * 0.67, materials.warm);
   plant(2.5, 5.48, 0.99, 0.78);
-  plant(-2.56, 5.48, 1.02, 0.6);
+  plant(2.52, 5.48, -0.55, 0.6);
   // Elevated water tank: water level above heater; open air vent above tank.
   const tx = -1.85,
     tz = -1.73;
@@ -238,6 +238,92 @@ export async function initTour() {
   // Rails/feet and roof pads preserve separation from the waterproofing.
   box(0.22, 0.08, 2.08, -0.52, 5.46, -0.02, materials.white);
   box(0.22, 0.08, 2.08, 1.18, 5.46, -0.02, materials.white);
+  // Illustrative LP supply and separate solar-compatible auxiliary heater.
+  // Fuel goes only to the auxiliary unit; the roof's solar tank contains water.
+  const gasMaterial = new THREE.MeshStandardMaterial({
+    color: 0xe3c459,
+    roughness: 0.65,
+  });
+  const tankMaterial = new THREE.MeshStandardMaterial({
+    color: 0xebece1,
+    roughness: 0.48,
+    metalness: 0.12,
+  });
+  const gasTank = cylinder(0.32, 0.32, 1.2, -2.1, 6.03, 0.35, tankMaterial, 32);
+  gasTank.rotation.x = Math.PI / 2;
+  for (const z of [-0.25, 0.95]) {
+    const cap = new THREE.Mesh(
+      new THREE.SphereGeometry(0.32, 24, 12),
+      tankMaterial,
+    );
+    cap.position.set(-2.1, 6.03, z);
+    cap.castShadow = true;
+    scene.add(cap);
+  }
+  for (const z of [-0.08, 0.78]) {
+    box(0.62, 0.1, 0.22, -2.1, 5.53, z, materials.white);
+    box(0.4, 0.28, 0.12, -2.1, 5.68, z, materials.dark);
+  }
+  cylinder(0.07, 0.07, 0.13, -2.1, 6.39, 0.35, materials.copper, 12);
+  cylinder(0.09, 0.09, 0.045, -2.1, 6.48, 0.35, materials.dark, 16);
+  box(0.19, 0.025, 0.07, -2.1, 6.53, 0.35, materials.copper);
+  // Open exterior service wall; auxiliary unit is distinct from the rooftop fuel tank.
+  box(0.38, 0.98, 0.64, -3.24, 3.2, -1.87, tankMaterial);
+  box(0.035, 0.7, 0.52, -3.445, 3.23, -1.87, materials.white);
+  for (let i = 0; i < 5; i++)
+    box(0.04, 0.025, 0.36, -3.47, 3.48 - i * 0.07, -1.87, materials.dark);
+  box(0.045, 0.12, 0.24, -3.475, 2.99, -1.87, materials.dark);
+  pipe(
+    [
+      [-3.25, 3.69, -1.87],
+      [-3.48, 3.85, -1.87],
+      [-3.65, 4.07, -1.87],
+      [-3.65, 6.37, -1.87],
+    ],
+    0.095,
+    materials.stone,
+  );
+  cylinder(0.18, 0.18, 0.045, -3.65, 6.47, -1.87, materials.stone, 20);
+  cylinder(0.09, 0.09, 0.07, -3.65, 6.4, -1.87, materials.dark, 20);
+  pipe(
+    [
+      [-2.1, 6.48, 0.35],
+      [-2.66, 6.48, 0.35],
+      [-3.35, 6.48, 0.35],
+      [-3.4, 5.79, 0.35],
+      [-3.5, 5.79, -2.12],
+      [-3.5, 2.54, -2.12],
+      [-3.3, 2.54, -2.12],
+      [-3.3, 2.73, -2.12],
+    ],
+    0.032,
+    gasMaterial,
+  );
+  // Physical labels are part of the equipment, not floating interaction controls.
+  function equipmentLabel(text, w, h, x, y, z, rotation = 0) {
+    const labelCanvas = document.createElement("canvas");
+    labelCanvas.width = 256;
+    labelCanvas.height = 96;
+    const context = labelCanvas.getContext("2d");
+    context.fillStyle = "#ebece1";
+    context.fillRect(0, 0, 256, 96);
+    context.fillStyle = "#283618";
+    context.font = '700 38px "Raleway Variable", sans-serif';
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(text, 128, 49);
+    const label = new THREE.Mesh(
+      new THREE.PlaneGeometry(w, h),
+      new THREE.MeshBasicMaterial({
+        map: new THREE.CanvasTexture(labelCanvas),
+      }),
+    );
+    label.position.set(x, y, z);
+    label.rotation.y = rotation;
+    scene.add(label);
+  }
+  equipmentLabel("GAS LP", 0.4, 0.15, -2.1, 6.04, 1.274);
+  equipmentLabel("AUXILIAR", 0.43, 0.15, -3.47, 2.87, -1.87, -Math.PI / 2);
   const coldPath = pipe(
     [
       [tx + 0.45, 6.25, tz],
@@ -257,8 +343,20 @@ export async function initTour() {
       [-1.04, 5.7, -0.83],
       [-2.6, 5.7, -0.83],
       [-3.2, 5.7, -0.83],
-      [-3.2, 1.38, -0.83],
-      [-2.91, 1.38, -0.83],
+      [-3.25, 2.48, -0.83],
+      [-3.25, 2.48, -1.63],
+      [-3.25, 2.72, -1.63],
+    ],
+    0.055,
+    materials.hot,
+  );
+  pipe(
+    [
+      [-3.25, 2.72, -1.92],
+      [-3.25, 2.36, -1.92],
+      [-3.55, 2.36, -1.92],
+      [-3.55, 1.38, -1.92],
+      [-2.91, 1.38, -1.92],
     ],
     0.055,
     materials.hot,
@@ -274,9 +372,9 @@ export async function initTour() {
   );
   // Visible valve handles. These are physical plumbing geometry, not UI icons.
   box(0.17, 0.03, 0.05, tx + 0.73, 6.13, tz, materials.copper);
-  box(0.13, 0.03, 0.06, -3.22, 2.04, -0.83, materials.copper);
+  box(0.13, 0.03, 0.06, -3.55, 1.8, -1.92, materials.copper);
   // Insulation collars around hot riser and wall clips.
-  for (const y of [1.7, 2.8, 3.9, 5])
+  for (const y of [2.8, 3.9, 5])
     box(0.16, 0.05, 0.19, -3.14, y, -0.83, materials.dark);
   // Courtyard, stepping stones and characteristic greenery.
   box(2.35, 0.08, 1.3, -3.45, 0.1, 2.15, materials.dirt);
@@ -288,7 +386,7 @@ export async function initTour() {
     box(1.45, 0.045, 0.46, 0.42, 0.045, 3.01 + i * 0.58, materials.white);
   box(0.2, 0.7, 5.25, 4.58, 0.39, -0.52, materials.warm);
   box(2.13, 0.7, 0.2, 3.63, 0.39, 2.08, materials.warm);
-  tree(-4.13, -2.3, 1.12);
+  tree(-4.6, -3.15, 1.12);
   tree(4.05, -2.64, 0.86);
   // A restrained streetscape gives scale without competing with the home.
   const neighbor = new THREE.MeshStandardMaterial({
@@ -322,7 +420,7 @@ export async function initTour() {
     { camera: [3.2, 2.55, 11.1], target: [0.2, 1.9, 1.4] },
     { camera: [9.5, 12.5, 11.5], target: [0, 4.9, -0.3] },
     { camera: [4.45, 8.05, 5.15], target: [0.25, 6.12, -0.35] },
-    { camera: [-6.15, 8.1, 4.85], target: [-1.1, 5.85, -0.7] },
+    { camera: [-9.15, 8.2, 6.1], target: [-1.65, 4.92, -0.7] },
     { camera: [10.8, 8.25, 14.7], target: [0, 2.9, -0.1] },
   ];
   let currentProgress = 0;

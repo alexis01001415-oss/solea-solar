@@ -1,0 +1,474 @@
+/* The glass treatments are editorial emphasis, never additional controls. */
+.word-window {
+  position: relative;
+  isolation: isolate;
+  max-width: 100%;
+  padding: 0.025em 0.14em 0.09em;
+  margin: 0.03em -0.035em 0.04em;
+  border-radius: 0.12em 0.08em 0.15em 0.22em;
+  background: linear-gradient(
+    176deg,
+    transparent 8%,
+    #dda15e10 40%,
+    #606c3826 100%
+  );
+  box-shadow:
+    inset 0 -1px 0 #606c3833,
+    0 10px 14px -13px #2836187a;
+  vertical-align: baseline;
+}
+.word-window::before {
+  content: "";
+  position: absolute;
+  inset: 12% 0 0;
+  background-image: var(--grain);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+}
+.word-window::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 8%;
+  right: 3%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #606c3866,
+    #dda15e70,
+    transparent
+  );
+}
+.tour-section .word-window,
+.impact-section .word-window,
+.site-footer .word-window {
+  background: linear-gradient(
+    175deg,
+    transparent 6%,
+    #fefae007 42%,
+    #dda15e26 100%
+  );
+  box-shadow:
+    inset 0 -1px #dda15e4d,
+    0 10px 14px -13px #0009;
+}
+.tour-section .word-window::after,
+.impact-section .word-window::after,
+.site-footer .word-window::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #fefae057,
+    #dda15e9a,
+    transparent
+  );
+}
+
+:is(
+  .benefit-list > div > .icon,
+  .quote-reassurance > .icon,
+  .tour-chapter .eyebrow > .icon,
+  .flow-heading > .icon,
+  .card-heading > .icon,
+  .explore-menu a > .icon,
+  .footer-meta > .icon,
+  .coverage-section > .icon
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  flex-shrink: 0;
+  position: relative;
+  isolation: isolate;
+  border-radius: 14px 10px 14px 10px;
+  background:
+    linear-gradient(150deg, #fff8, #fefae011 40%, #606c381a), var(--grain);
+  border: 1px solid #606c3829;
+  border-top-color: #fff8;
+  box-shadow:
+    inset 0 1px #fff6,
+    inset 0 -1px #606c3824,
+    0 8px 16px -12px #28361850;
+  color: var(--copper);
+  cursor: inherit;
+}
+:is(.tour-chapter .eyebrow > .icon, .footer-meta > .icon) {
+  background:
+    linear-gradient(150deg, #fefae014, #fefae003 45%, #dda15e20), var(--grain);
+  color: var(--sand);
+  border-color: #fefae01d;
+  border-top-color: #fefae040;
+  box-shadow:
+    inset 0 1px #fefae011,
+    0 8px 14px -12px #0008;
+}
+.benefit-list > div > .icon {
+  margin-top: 0;
+}
+.card-heading > .icon {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  padding: 8px;
+}
+.tour-chapter .eyebrow > .icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  font-size: 24px;
+}
+.explore-menu a > .icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+.coverage-section > .icon {
+  width: 72px;
+  height: 72px;
+  padding: 16px;
+  font-size: 40px;
+}
+:is(
+  .tiny-sun,
+  .location-note > .icon,
+  .detail-tag > .icon,
+  .tour-scene-caption > .icon,
+  .tour-disclaimer > .icon
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 17px;
+  background: linear-gradient(145deg, #fefae05c, #606c3817), var(--grain);
+  border: 1px solid #606c3829;
+  box-shadow: inset 0 1px #fefae075;
+}
+.tour-disclaimer > .icon {
+  color: var(--sand);
+  background: linear-gradient(145deg, #fefae015, #dda15e17);
+  border-color: #fefae02c;
+}
+
+/* A bounded aperture, separate from the long WebGL section and its sticky scene. */
+.tour-portal {
+  position: relative;
+  height: 125svh;
+  background: #eeefdf;
+  pointer-events: none;
+}
+.portal-sticky {
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100dvh - var(--header-height));
+  overflow: clip;
+}
+.portal-surface {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #283618;
+  color: var(--cream);
+  clip-path: circle(72% at 50% 50%);
+}
+.portal-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain);
+  opacity: 0.08;
+}
+.portal-caption {
+  text-align: center;
+  padding: 24px;
+}
+.portal-caption > span:first-child {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.2em;
+}
+.portal-caption > p {
+  font: 500 clamp(40px, 6vw, 84px)/1.2 var(--serif);
+  letter-spacing: -0.04em;
+  margin-block: 24px 32px;
+}
+.portal-caption > .icon {
+  font-size: 36px;
+  color: var(--sand);
+}
+.tour-section {
+  background: linear-gradient(180deg, #283618, #1c2915);
+}
+.backup-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 24px;
+  font-size: 12px;
+  color: #e0e3d1;
+}
+.backup-key > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.backup-key > span::before {
+  content: "";
+  height: 3px;
+  width: 14px;
+  background: #dfa080;
+  border-radius: 2px;
+}
+.backup-key > .key-gas::before {
+  background: #e4c357;
+}
+.backup-key > .key-backup::before {
+  height: 10px;
+  width: 10px;
+  border-radius: 2px;
+  background: #fefae0;
+}
+
+/* The right edge is real alpha masking: replacement images keep this treatment. */
+.impact-rows article {
+  grid-template-columns: minmax(220px, 0.95fr) minmax(0, 1.7fr);
+  gap: 40px;
+  align-items: center;
+  padding-block: 32px;
+}
+.impact-visual {
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.impact-visual img {
+  width: 100%;
+  height: 224px;
+  object-fit: cover;
+  object-position: 25% center;
+  border-radius: 12px 0 0 12px;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 48%,
+    #000c 64%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 48%,
+    #000c 64%,
+    transparent 100%
+  );
+}
+.impact-rows article > div {
+  display: block;
+}
+.impact-number {
+  display: block;
+  margin-bottom: 16px;
+}
+.impact-rows h3 {
+  max-width: 660px;
+}
+.impact-rows article p {
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+/* Native SVG, animated only while this figure is on screen. */
+.solar-flow {
+  margin: 40px 0 0;
+  padding: 24px 24px 20px;
+  max-width: 520px;
+  border-radius: 12px;
+  border-bottom: 1px solid #606c3833;
+  background: linear-gradient(155deg, #fefae060, #dda15e12 58%, #606c3810);
+}
+.flow-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+}
+.flow-heading > .icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  font-size: 24px;
+}
+.flow-drawing {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 8px;
+  overflow: visible;
+}
+.flow-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.solar-flow figcaption {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #535b43;
+  margin-top: 8px;
+}
+.energy-stream {
+  stroke-dasharray: 9 58;
+  animation: solar-energy 2.8s linear infinite paused;
+}
+.water-stream {
+  stroke-dasharray: 3 22;
+  animation: hot-water 2s linear infinite paused;
+}
+.solar-flow.is-playing :is(.energy-stream, .water-stream) {
+  animation-play-state: running;
+}
+@keyframes solar-energy {
+  to {
+    stroke-dashoffset: -67;
+  }
+}
+@keyframes hot-water {
+  to {
+    stroke-dashoffset: -50;
+  }
+}
+@media (max-width: 900px) {
+  .impact-rows article {
+    gap: 24px;
+    grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.4fr);
+  }
+  .impact-visual img {
+    height: 232px;
+  }
+  .solar-flow {
+    padding-inline: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .word-window {
+    padding-inline: 0.1em;
+  }
+  .hero h1 .word-window {
+    margin-top: 0.02em;
+  }
+  .tour-portal {
+    height: 112svh;
+  }
+  .portal-caption > p {
+    font-size: clamp(35px, 9vw, 56px);
+  }
+  .portal-caption > span:first-child {
+    font-size: 10px;
+  }
+  .impact-rows article {
+    display: block;
+    padding-block: 28px 32px;
+  }
+  .impact-visual {
+    margin-bottom: 24px;
+    width: calc(100% + 8px);
+  }
+  .impact-visual img {
+    height: 210px;
+  }
+  .impact-number {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+  .impact-rows h3 {
+    font-size: 28px;
+  }
+  .impact-rows article p {
+    font-size: 16px;
+  }
+  .solar-flow {
+    margin-top: 32px;
+    padding: 20px 16px;
+  }
+  .flow-heading {
+    font-size: 10px;
+  }
+  .tour-chapter .eyebrow {
+    margin-bottom: 16px;
+  }
+  .tour-chapter .eyebrow > .icon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  .backup-key {
+    gap: 8px 12px;
+    margin-top: 16px;
+    font-size: 11px;
+  }
+  #momento-4 h3 {
+    font-size: 28px;
+  }
+  #momento-4 .chapter-detail {
+    font-size: 12px;
+  }
+  .life-section h2 .word-window {
+    max-width: 100%;
+  }
+}
+@media (max-height: 550px) {
+  .tour-portal {
+    height: 80svh;
+  }
+  .portal-sticky {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+  .portal-caption > p {
+    font-size: 38px;
+    margin-block: 12px;
+  }
+  .portal-caption > .icon {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-portal {
+    display: none;
+  }
+  .solar-flow :is(.energy-stream, .water-stream) {
+    animation: none;
+  }
+}
+@media print {
+  .tour-portal {
+    display: none;
+  }
+  .solar-flow :is(.energy-stream, .water-stream) {
+    animation: none;
+  }
+  .impact-visual img {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}

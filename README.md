@@ -25,9 +25,12 @@ npm run preview
 
 - HTML semántico estático, Vite, JavaScript modular y CSS responsive.
 - Calentador Three.js que cambia de posición y ángulo durante los tres primeros capítulos. Arrastre con ratón o gesto horizontal, flechas de teclado e Inicio para restablecer. El scroll vertical y el zoom táctil se conservan.
-- Casa procedural, sombras, vegetación, azotea, tinaco, calentador y tuberías. Cinco capítulos de instalación con cámara guiada por scroll reversible y escena sticky. El contenido de los cinco pasos permanece en HTML.
+- Casa procedural, sombras, vegetación, azotea, tinaco, calentador y tuberías. Cinco capítulos de instalación con cámara guiada por scroll reversible y escena sticky. Incluye tanque de gas LP y calentador auxiliar separados: gas al auxiliar, agua del solar al auxiliar y de ahí al hogar. Es una maqueta conceptual, no un proyecto de instalación.
 - Lenis y GSAP comparten un reloj. Navegación persistente, títulos con aparición animada y botones de vidrio texturado. Movimiento reducido: desplazamiento nativo, sin vuelos de cámara ni paneles prolongados.
-- Escenario ajustable de ahorro, beneficios ambientales con fuentes y doce preguntas frecuentes. La referencia de CONUEE es general y de 2014; no se presenta como ahorro garantizado del recibo completo.
+- Escenario ajustable de ahorro, beneficios ambientales con fuentes y trece preguntas frecuentes. La referencia de CONUEE es general y de 2014; no se presenta como ahorro garantizado del recibo completo.
+- Palabras destacadas e iconos informativos con vidrio ahumado decorativo. Apertura circular antes del recorrido, independiente de la escena; se omite con movimiento reducido.
+- Tres imágenes provisionales con máscara de transparencia hacia la derecha. Se reemplazan conservando los nombres en `public/images/`; [instrucciones y prompts](public/images/README.md).
+- Ilustración SVG junto al cotizador. La animación se pausa fuera de pantalla, al ocultar la pestaña y al preferir movimiento reducido. Sus etiquetas son HTML legible en móvil.
 - Cotizador local con capacidades e importes ilustrativos. Presión desconocida o ubicación fuera del área: solicita valoración en vez de inventar un precio.
 - PDF creado bajo demanda con jsPDF. La solicitud de contacto añade los datos del formulario al documento local; **no hay envío ni almacenamiento de contactos**.
 - Lora, Raleway y Google Material Symbols servidos localmente.
@@ -55,7 +58,7 @@ CSP restrictiva en meta, hash del JSON-LD, activos propios, sin scripts externos
 ## Archivos clave
 
 - `index.html`: contenido y estructura.
-- `src/styles.css`, `src/refinements.css`: sistema visual y adaptación.
+- `src/styles.css`, `src/refinements.css`, `src/edition-three.css`: sistema visual y adaptación.
 - `src/scroll-experience.js`: Lenis, animación de títulos y sincronización de capítulos.
 - `src/product.js`, `src/tour.js`, `src/three-shared.js`: escenas 3D.
 - `src/quote.js`, `src/pdf.js`: cálculo y documento.

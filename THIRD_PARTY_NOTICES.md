@@ -28,7 +28,16 @@ The house is a procedural educational illustration, not an engineering specifica
 
 ## Savings and environmental references
 
+- CONUEE, compatible backup for solar water heating: https://www.gob.mx/conuee/acciones-y-programas/calentamiento-de-agua
+- CONAVI, gas supply and auxiliary water heater: https://siesco.conavi.gob.mx/doc/tecnicos/ecotecnologias/conjunto_habitacional/gas.pdf
+
 - CONUEE, domestic solar water heating (2014): https://www.gob.mx/conuee/acciones-y-programas/calentamiento-solar-de-agua-en-mi-casa?state=published
 - California Energy Commission, Solar Water Heating Assessment Project (2019): https://www.energy.ca.gov/publications/2019/solar-water-heating-assessment-project-understanding-and-improving-effectiveness
 
 The CONUEE range is a general historical reference for water-heating fuel, not the entire household gas bill. The adjustable example uses a hypothetical 60% reduction and excludes investment, maintenance and fixed charges. California performance figures are not transferred to Mexico; its research supports the relationship between displaced gas and associated emissions.
+
+The gas supply and auxiliary heater added to the procedural house are conceptual geometry. Equipment compatibility, siting, pressure, ventilation and exhaust require professional assessment and the selected models' manuals. A fuel tank alone is not a water-heating backup.
+
+## Provisional editorial images
+
+The three `public/images/impacto-*.webp` images were generated with the built-in image generation tool. They are conceptual placeholders, not photographs of real customer installations. The prompts and replacement instructions are recorded in `public/images/README.md`. The inline solar-flow SVG is original code-native artwork.

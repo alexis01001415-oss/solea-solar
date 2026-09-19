@@ -14,7 +14,7 @@ test("published HTML includes all visible FAQ answers and an authorized JSON-LD 
   assert.ok(json);
   const graph = JSON.parse(json)["@graph"];
   const faq = graph.find((x) => x["@type"] === "FAQPage");
-  assert.equal(faq.mainEntity.length, 12);
+  assert.equal(faq.mainEntity.length, 13);
   for (const q of faq.mainEntity) {
     assert.ok(q.name.endsWith("?"));
     assert.ok(q.acceptedAnswer.text.length > 80);
