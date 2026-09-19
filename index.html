@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fefae0" />
+    <meta
+      name="description"
+      content="Descubre una forma más cálida de vivir con Solea. Calentadores solares para CDMX y área metropolitana, recorrido de instalación 3D y cotizador con PDF. Prototipo interactivo."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"
+    />
+    <link
+      rel="canonical"
+      href="https://alexis01001415-oss.github.io/solea-solar/"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Solea Solar" />
+    <meta
+      property="og:title"
+      content="Solea — El sol de siempre. Una nueva forma de vivir."
+    />
+    <meta
+      property="og:description"
+      content="Agua caliente, menos gas y más momentos para ti. Explora la experiencia solar de Solea."
+    />
+    <meta
+      property="og:url"
+      content="https://alexis01001415-oss.github.io/solea-solar/"
+    />
+    <meta
+      property="og:image"
+      content="https://alexis01001415-oss.github.io/solea-solar/social-cover.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Solea · Calentadores solares en CDMX y área metropolitana</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a href="#inicio" class="brand" aria-label="Solea, inicio"
+        ><span class="icon brand-sun" aria-hidden="true">sunny</span
+        ><span>solea<span class="brand-dot">.</span></span></a
+      >
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#beneficios">Por qué solar</a
+        ><a href="#recorrido">La instalación</a
+        ><a href="#preguntas">Tus dudas</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#cotizador" class="button button-small button-dark"
+          >Cotiza tu cambio <span class="icon" aria-hidden="true">add</span></a
+        ><button
+          class="menu-toggle icon-button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="icon" aria-hidden="true">menu</span>
+        </button>
+      </div>
+      <nav
+        id="mobile-menu"
+        class="mobile-nav"
+        aria-label="Navegación móvil"
+        hidden
+      >
+        <a href="#beneficios">Por qué solar</a
+        ><a href="#recorrido">La instalación</a
+        ><a href="#cotizador">Cotiza tu cambio</a
+        ><a href="#preguntas">Tus dudas</a><a href="#contacto">Hablemos</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <div id="solar-story" class="solar-story">
+        <div id="product-stage" class="product-stage" aria-hidden="true">
+          <canvas id="product-canvas"></canvas>
+        </div>
+        <section id="inicio" class="hero story-panel">
+          <div class="hero-grain" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+          <div class="hero-copy story-copy">
+            <p class="eyebrow">
+              <span class="tiny-sun icon" aria-hidden="true">sunny</span> CALOR
+              DE AQUÍ. PARA TU HOGAR.
+            </p>
+            <h1>
+              El sol de siempre.<br />Una nueva forma<br />de <em>vivir.</em>
+            </h1>
+            <p class="lead">
+              Que el agua caliente se sienta bien.<br />Y tu próximo recibo de
+              gas, también.
+            </p>
+            <div class="hero-ctas">
+              <a class="button button-copper" href="#cotizador"
+                >Encuentra tu calentador
+                <span class="icon" aria-hidden="true">sunny</span></a
+              ><a href="#recorrido" class="text-button"
+                ><span class="icon" aria-hidden="true">play_circle</span> Así
+                llega a tu casa</a
+              >
+            </div>
+            <p class="location-note">
+              <span class="icon" aria-hidden="true">location_on</span> Ciudad de
+              México y área metropolitana
+            </p>
+          </div>
+          <div
+            class="model-slot hero-model"
+            id="model-anchor-0"
+            role="group"
+            aria-label="Modelo 3D de un calentador solar de tubos con tanque y estructura de soporte"
+          >
+            <div class="solar-disc" aria-hidden="true"></div>
+            <span class="model-kicker">DISEÑADO PARA APROVECHAR CADA DÍA</span>
+            <div class="model-stamp">
+              <span class="icon" aria-hidden="true">wb_twilight</span
+              ><span>Una energía<br /><strong>muy nuestra.</strong></span>
+            </div>
+            <span class="model-fallback" hidden
+              >Vista 3D no disponible en este dispositivo.<br />Descubre los
+              detalles a continuación.</span
+            >
+            <div class="model-controls">
+              <button
+                class="icon-button rotate-model"
+                data-direction="-1"
+                aria-label="Girar calentador a la izquierda"
+              >
+                <span class="icon" aria-hidden="true">rotate_left</span></button
+              ><span>EXPLORA EN 3D</span
+              ><button
+                class="icon-button rotate-model"
+                data-direction="1"
+                aria-label="Girar calentador a la derecha"
+              >
+                <span class="icon" aria-hidden="true">rotate_right</span>
+              </button>
+            </div>
+            <span class="model-loading" role="status"
+              >Preparando un poco de sol…</span
+            >
+          </div>
+          <div class="hero-bottom">
+            <span>UN PEQUEÑO CAMBIO. UNA VIDA MÁS CÁLIDA.</span
+            ><a href="#beneficios" aria-label="Descubrir los beneficios"
+              ><span class="icon" aria-hidden="true">south</span></a
+            ><span>01 / 03</span>
+          </div>
+        </section>
+        <div class="promise-strip">
+          <p>
+            <span class="icon" aria-hidden="true">energy_savings_leaf</span>
+            Energía que ya está ahí
+          </p>
+          <p>
+            <span class="icon" aria-hidden="true">home</span> Pensado para tu
+            hogar
+          </p>
+          <p>
+            <span class="icon" aria-hidden="true">handyman</span> Cada
+            instalación, a su medida
+          </p>
+        </div>
+        <section id="beneficios" class="benefits story-panel">
+          <div
+            class="model-slot"
+            id="model-anchor-1"
+            role="group"
+            aria-label="Vista girada del calentador solar"
+          >
+            <div class="benefits-orbit" aria-hidden="true"></div>
+            <span class="technical-label">01 — CAPTURA EL SOL</span>
+            <div class="model-controls">
+              <button
+                class="icon-button rotate-model"
+                data-direction="-1"
+                aria-label="Girar calentador a la izquierda"
+              >
+                <span class="icon" aria-hidden="true">rotate_left</span></button
+              ><span>MÍRALO DESDE OTRO ÁNGULO</span
+              ><button
+                class="icon-button rotate-model"
+                data-direction="1"
+                aria-label="Girar calentador a la derecha"
+              >
+                <span class="icon" aria-hidden="true">rotate_right</span>
+              </button>
+            </div>
+          </div>
+          <div class="story-copy reveal">
+            <p class="eyebrow">01 / UN CAMBIO QUE SÍ SE SIENTE</p>
+            <h2>Menos gas.<br />Más <em>tranquilidad.</em></h2>
+            <p class="section-lead">
+              El sol pone la energía. Tú eliges en qué disfrutar lo que dejas de
+              gastar.
+            </p>
+            <div class="benefit-list">
+              <div>
+                <span class="icon" aria-hidden="true">savings</span>
+                <div>
+                  <h3>Un respiro para tu bolsillo</h3>
+                  <p>
+                    Reduce el uso de gas para calentar el agua de todos los
+                    días.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <span class="icon" aria-hidden="true">eco</span>
+                <div>
+                  <h3>Algo bueno empieza en casa</h3>
+                  <p>
+                    Aprovecha una fuente renovable en una rutina que ya tienes.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <span class="icon" aria-hidden="true">water_drop</span>
+                <div>
+                  <h3>Tu misma rutina. Otro origen.</h3>
+                  <p>
+                    Una ducha cálida, ahora con la energía que llega a tu
+                    azotea.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p class="small-note">
+              El ahorro depende del clima, consumo, equipo e instalación.
+            </p>
+          </div>
+        </section>
+        <section id="tecnologia" class="technology story-panel">
+          <div class="story-copy reveal">
+            <p class="eyebrow">
+              02 / SENCILLO POR FUERA. INGENIOSO POR DENTRO.
+            </p>
+            <h2>El día se calienta.<br />Tu agua <em>también.</em></h2>
+            <p class="section-lead">
+              Sin cambiar tu manera de vivir. Solo la manera de calentar el
+              agua.
+            </p>
+            <ol class="how-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>El sol hace su parte</h3>
+                  <p>
+                    Los tubos captan la energía solar y la transfieren al agua.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>El calor se queda</h3>
+                  <p>Un tanque aislado ayuda a conservar el agua caliente.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Tu casa lo disfruta</h3>
+                  <p>
+                    Se integra a tu instalación, con un respaldo compatible para
+                    cuando se necesite.
+                  </p>
+                </div>
+              </li>
+            </ol>
+            <a class="text-button" href="#recorrido"
+              >Conoce cómo lo instalamos
+              <span class="icon" aria-hidden="true">add_circle</span></a
+            >
+          </div>
+          <div
+            class="model-slot"
+            id="model-anchor-2"
+            role="group"
+            aria-label="Detalle del tanque aislado y los tubos del calentador solar"
+          >
+            <div class="tech-halo" aria-hidden="true"></div>
+            <div class="detail-tag tag-tank">
+              <span class="icon" aria-hidden="true">thermostat</span> Conserva
+              el calor
+            </div>
+            <div class="detail-tag tag-tubes">
+              <span class="icon" aria-hidden="true">sunny</span> Captura la
+              energía
+            </div>
+            <div class="model-controls">
+              <button
+                class="icon-button rotate-model"
+                data-direction="-1"
+                aria-label="Girar calentador a la izquierda"
+              >
+                <span class="icon" aria-hidden="true">rotate_left</span></button
+              ><span>LA INGENIERÍA DEL BIENESTAR</span
+              ><button
+                class="icon-button rotate-model"
+                data-direction="1"
+                aria-label="Girar calentador a la derecha"
+              >
+                <span class="icon" aria-hidden="true">rotate_right</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section id="recorrido" class="tour-section">
+        <div class="section-top reveal">
+          <div>
+            <p class="eyebrow">DE NUESTRA EXPERIENCIA A TU AZOTEA</p>
+            <h2>Antes de instalarlo,<br />ya estarás <em>en casa.</em></h2>
+          </div>
+          <p>
+            Abre la puerta. Te llevamos, paso a paso,<br />por el camino de tu
+            nueva energía.
+          </p>
+        </div>
+        <div class="tour-layout">
+          <div
+            class="tour-viewport"
+            id="tour-viewport"
+            role="region"
+            aria-label="Recorrido tridimensional de instalación"
+          >
+            <canvas
+              id="tour-canvas"
+              aria-label="Casa con azotea, calentador solar, tinaco y tuberías. La cámara cambia con cada paso."
+            ></canvas>
+            <span class="tour-scene-caption"
+              ><span class="icon" aria-hidden="true">location_on</span> UN
+              HOGAR, COMO EL TUYO</span
+            >
+            <div class="tour-start">
+              <span class="icon" aria-hidden="true">view_in_ar</span>
+              <p>Tu cambio comienza aquí.</p>
+              <button id="start-tour" class="button button-cream">
+                <span class="icon" aria-hidden="true">play_circle</span> Iniciar
+                recorrido</button
+              ><span class="tour-loading" role="status"
+                >Preparando la casa…</span
+              >
+            </div>
+            <div class="tour-scene-bottom">
+              <span>EXPERIENCIA 3D · 5 MOMENTOS</span
+              ><button
+                id="tour-reset"
+                class="icon-button"
+                aria-label="Ver casa completa"
+                title="Ver casa completa"
+              >
+                <span class="icon" aria-hidden="true">view_in_ar</span>
+              </button>
+            </div>
+          </div>
+          <div class="tour-story">
+            <div
+              class="tour-progress"
+              role="group"
+              aria-label="Pasos del recorrido"
+            >
+              <button
+                class="step-dot active"
+                data-step="0"
+                aria-label="Paso 1: Tu casa"
+                aria-current="step"
+              >
+                01</button
+              ><button
+                class="step-dot"
+                data-step="1"
+                aria-label="Paso 2: Ubicación"
+              >
+                02</button
+              ><button
+                class="step-dot"
+                data-step="2"
+                aria-label="Paso 3: Montaje"
+              >
+                03</button
+              ><button
+                class="step-dot"
+                data-step="3"
+                aria-label="Paso 4: Conexiones"
+              >
+                04</button
+              ><button
+                class="step-dot"
+                data-step="4"
+                aria-label="Paso 5: Entrega"
+              >
+                05
+              </button>
+            </div>
+            <div id="tour-copy" aria-live="polite">
+              <span class="tour-step-icon icon" aria-hidden="true">home</span>
+              <p class="eyebrow">
+                MOMENTO <span id="step-number">01</span> / 05
+              </p>
+              <h3 id="step-title">Todo empieza<br />en tu casa.</h3>
+              <p id="step-description">
+                Conocemos tu consumo, cómo llega el agua y el acceso a tu
+                azotea.
+              </p>
+              <p id="step-detail">Una solución comienza por escuchar.</p>
+            </div>
+            <div class="tour-nav">
+              <button
+                id="tour-prev"
+                class="icon-button"
+                aria-label="Paso anterior"
+                disabled
+              >
+                <span class="icon" aria-hidden="true">west</span></button
+              ><button
+                id="tour-play"
+                class="text-button"
+                aria-label="Reproducir recorrido automáticamente"
+              >
+                <span class="icon" aria-hidden="true">play_circle</span
+                ><span>Reproducir</span></button
+              ><button
+                id="tour-next"
+                class="icon-button"
+                aria-label="Siguiente paso"
+              >
+                <span class="icon" aria-hidden="true">east</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="tour-disclaimer">
+          <span class="icon" aria-hidden="true">info</span> Recorrido
+          ilustrativo de un sistema por gravedad. La solución y las protecciones
+          se definen durante la visita técnica.
+        </p>
+      </section>
+
+      <section class="life-section">
+        <p class="eyebrow reveal">LA MEJOR ENERGÍA ES LA QUE SE COMPARTE</p>
+        <h2 class="reveal">
+          Para el primero en levantarse.<br />Para quien llega al final del
+          día.<br /><em>Para la vida que pasa en casa.</em>
+        </h2>
+        <div class="life-bottom">
+          <span class="icon" aria-hidden="true">wb_twilight</span>
+          <p>Calentadores solares. Calor de hogar.</p>
+          <span class="fine-rule"></span><span>SOLEA, TODOS LOS DÍAS.</span>
+        </div>
+      </section>
+
+      <section id="cotizador" class="quote-section">
+        <div class="quote-intro reveal">
+          <p class="eyebrow">EL PRIMER PASO ES MÁS FÁCIL DE LO QUE CREES</p>
+          <h2>
+            Tu casa es distinta.<br />Tu calentador<br /><em>también.</em>
+          </h2>
+          <p class="section-lead">
+            Cuéntanos un poco de tu hogar.<br />Exploremos juntos por dónde
+            empezar.
+          </p>
+          <div class="quote-reassurance">
+            <span class="icon" aria-hidden="true">description</span>
+            <div>
+              <strong>Llévate un plan, sin compromiso.</strong>
+              <p>
+                Descarga tu estimación y una guía para preparar la visita
+                técnica.
+              </p>
+            </div>
+          </div>
+          <div class="quote-decoration" aria-hidden="true">
+            <span class="icon">sunny</span
+            ><span>EL FUTURO<br />SE SIENTE CÁLIDO.</span>
+          </div>
+        </div>
+        <form id="quote-form" class="quote-card">
+          <div class="card-heading">
+            <span>TU HOGAR, TU ENERGÍA</span
+            ><span class="icon" aria-hidden="true">tune</span>
+          </div>
+          <fieldset>
+            <legend>¿Cuántas personas viven en casa?</legend>
+            <div class="people-display">
+              <output for="people" id="people-value">4</output
+              ><span>personas</span>
+            </div>
+            <input
+              type="range"
+              id="people"
+              name="people"
+              min="1"
+              max="8"
+              value="4"
+              aria-label="Número de personas"
+            />
+            <div class="range-labels">
+              <span>1 persona</span><span>8 personas</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tu tipo de hogar</legend>
+            <div class="segmented">
+              <label
+                ><input type="radio" name="home" value="Casa" checked /><span
+                  ><span class="icon" aria-hidden="true">home</span> Casa</span
+                ></label
+              ><label
+                ><input type="radio" name="home" value="Departamento" /><span
+                  ><span class="icon" aria-hidden="true">apartment</span>
+                  Departamento</span
+                ></label
+              >
+            </div>
+          </fieldset>
+          <div class="form-grid">
+            <label
+              >¿Cómo llega el agua?<select id="water" name="water">
+                <option value="tinaco">Tinaco / gravedad</option>
+                <option value="presion">Hidroneumático / presión</option>
+                <option value="desconocido">No estoy seguro</option>
+              </select></label
+            ><label
+              >¿Dónde estás?<select id="zone" name="zone">
+                <option value="CDMX">Ciudad de México</option>
+                <option value="Edomex">Área metropolitana</option>
+                <option value="otra">Otra ubicación</option>
+              </select></label
+            >
+          </div>
+          <div class="quote-result" aria-live="polite" aria-atomic="true">
+            <span class="result-eyebrow">TU PUNTO DE PARTIDA</span>
+            <h3 id="quote-model">Solea Hogar · 200 L</h3>
+            <p id="quote-type">Sistema por gravedad · 4 personas</p>
+            <div class="quote-price">
+              <strong id="quote-price">$10,900 – $13,400</strong
+              ><span>MXN</span>
+            </div>
+            <p id="quote-includes">Equipo + instalación básica de referencia</p>
+            <p id="quote-special" class="quote-special" hidden></p>
+          </div>
+          <button
+            type="submit"
+            id="download-quote"
+            class="button button-dark button-full"
+          >
+            <span class="icon" aria-hidden="true">download</span> Descargar mi
+            plan en PDF
+          </button>
+          <p class="quote-note">
+            Importes y capacidades simulados para este prototipo. La selección y
+            el precio final requieren una visita técnica. No constituye una
+            oferta comercial.
+          </p>
+          <p id="quote-status" class="form-status" role="status"></p>
+        </form>
+      </section>
+
+      <section id="preguntas" class="faq-section">
+        <div class="reveal">
+          <p class="eyebrow">CLARO COMO EL AGUA</p>
+          <h2>Buenas preguntas.<br /><em>Respuestas claras.</em></h2>
+          <p>Para dar el paso con tranquilidad.</p>
+          <a href="#contacto" class="text-button"
+            >Tengo otra pregunta
+            <span class="icon" aria-hidden="true">add_circle</span></a
+          >
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              ¿Y si está nublado o hace frío?<span
+                class="icon"
+                aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              El rendimiento cambia con el clima. Un calentador de respaldo
+              compatible puede complementar el sistema cuando la energía solar
+              no sea suficiente. La conexión se revisa para cada hogar.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Se puede instalar en un departamento?<span
+                class="icon"
+                aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              Puede ser posible si existe acceso y autorización para usar la
+              azotea, espacio adecuado y una ruta viable de tuberías. Primero se
+              revisan la presión y las condiciones del edificio.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cuánto puedo ahorrar en gas?<span class="icon" aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              Depende de tu consumo de agua caliente, el clima, el tamaño del
+              equipo y la instalación. El sistema reduce el gas destinado a
+              calentar agua; el consumo de estufa y otros aparatos es
+              independiente. Por eso no prometemos un porcentaje universal.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Funciona con cualquier presión de agua?<span
+                class="icon"
+                aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              No. Un sistema por gravedad y uno para agua presurizada tienen
+              requisitos diferentes. Hay que medir la presión y seleccionar el
+              equipo y las protecciones según el manual del fabricante.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Necesita mantenimiento?<span class="icon" aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              Sí. Se revisan tubos, conexiones, aislamiento, fijaciones y
+              calidad del agua. La frecuencia depende del fabricante y las
+              condiciones locales. Conserva el manual y agenda el mantenimiento
+              con personal capacitado.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Qué incluye el PDF del cotizador?<span
+                class="icon"
+                aria-hidden="true"
+                >add</span
+              >
+            </summary>
+            <p>
+              Tu selección, un rango de precio ilustrativo, los supuestos y una
+              lista de preparación: acceso a la azotea, fotos útiles, suministro
+              de agua y puntos a revisar durante la visita. No se necesita dejar
+              datos personales para descargarlo.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="coverage-section">
+        <span class="icon" aria-hidden="true">location_on</span>
+        <p>El mismo sol.<br /><strong>Más hogares conectados.</strong></p>
+        <div>
+          <span>CIUDAD DE MÉXICO</span><span>ÁREA METROPOLITANA</span>
+          <p>La viabilidad y cobertura se confirman para cada domicilio.</p>
+        </div>
+      </section>
+    </main>
+    <footer id="contacto" class="site-footer">
+      <div class="footer-main">
+        <div class="footer-intro">
+          <a href="#inicio" class="brand" aria-label="Solea, volver al inicio"
+            ><span class="icon brand-sun" aria-hidden="true">sunny</span
+            ><span>solea<span class="brand-dot">.</span></span></a
+          >
+          <h2>Hagamos espacio<br />para algo <em>bueno.</em></h2>
+          <p>Tu siguiente gran cambio<br />puede empezar en tu azotea.</p>
+          <div class="footer-meta">
+            <span class="icon" aria-hidden="true">sunny</span> HECHO PARA LOS
+            DÍAS QUE VIENEN.
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form">
+          <h3>Hablemos de tu hogar.</h3>
+          <div class="form-grid">
+            <label
+              >Tu nombre<input
+                autocomplete="given-name"
+                name="name"
+                required
+                maxlength="60"
+                placeholder="¿Cómo te llamas?" /></label
+            ><label
+              >Tu correo<input
+                type="email"
+                autocomplete="email"
+                name="email"
+                required
+                maxlength="120"
+                placeholder="hola@ejemplo.com"
+            /></label>
+          </div>
+          <label
+            >Alcaldía o municipio<input
+              name="location"
+              autocomplete="address-level2"
+              required
+              maxlength="100"
+              placeholder="Por ejemplo, Coyoacán" /></label
+          ><label
+            >¿Qué tienes en mente?<textarea
+              name="message"
+              rows="2"
+              maxlength="600"
+              placeholder="Cuéntanos de tu hogar o déjanos tus dudas."
+            ></textarea></label
+          ><label class="consent"
+            ><input type="checkbox" required name="consent" /><span
+              >Entiendo que es un prototipo y que la solicitud se descargará en
+              mi dispositivo.</span
+            ></label
+          ><button type="submit" class="button button-cream">
+            Preparar mi solicitud
+            <span class="icon" aria-hidden="true">description</span>
+          </button>
+          <p class="contact-privacy">
+            Tus datos no se envían ni se guardan en un servidor.
+          </p>
+          <p id="contact-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span
+          >© <span id="year">2026</span> Solea. Marca ficticia · Prototipo de
+          experiencia.</span
+        >
+        <div>
+          <button id="privacy-open" class="footer-link">Privacidad</button
+          ><button id="credits-open" class="footer-link">
+            Créditos y fuentes</button
+          ><a href="#inicio" class="back-top" aria-label="Volver arriba"
+            ><span class="icon" aria-hidden="true">north</span></a
+          >
+        </div>
+      </div>
+    </footer>
+    <dialog id="info-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close icon-button" aria-label="Cerrar">
+        <span class="icon" aria-hidden="true">close</span>
+      </button>
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-content"></div>
+    </dialog>
+    <noscript
+      ><div class="noscript-message">
+        Puedes consultar la información de esta página. Activa JavaScript para
+        explorar los modelos 3D y descargar tu cotización.
+      </div></noscript
+    >
+  </body>
+</html>

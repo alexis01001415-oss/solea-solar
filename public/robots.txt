@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alexis01001415-oss.github.io/solea-solar/sitemap.xml
