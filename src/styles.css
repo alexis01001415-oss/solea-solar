@@ -2774,6 +2774,11 @@ textarea,
 .story-copy {
   min-width: 0;
 }
+@media (min-width: 701px) and (max-width: 900px) {
+  .hero h1 {
+    font-size: 5.6vw;
+  }
+}
 @media (max-width: 700px) {
   .hero h1 {
     font-size: clamp(31px, 9.6vw, 65px);
