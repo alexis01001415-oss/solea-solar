@@ -40,7 +40,6 @@ $("#year").textContent = new Date().getFullYear();
 
 if (!reducedMotion.matches) {
   gsap.from(".hero-copy > *", {
-    opacity: 0,
     y: 22,
     stagger: 0.1,
     duration: 0.8,
