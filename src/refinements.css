@@ -780,10 +780,11 @@ h2 {
 .footer-main {
   gap: 6%;
 }
-.contact-form input:not([type="checkbox"]),
-.contact-form textarea {
+#contact-form input:not([type="checkbox"]),
+#contact-form textarea {
   background: #fefae00d;
   border-color: #fefae04d;
+  color: var(--cream);
 }
 .faq-section {
   align-items: start;
